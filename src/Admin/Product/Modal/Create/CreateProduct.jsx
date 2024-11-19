@@ -16,28 +16,28 @@ const CreateProduct = ({ onclose }) => {
   const [isShowCreteDetail, setIsShowCreteDetail] = useState(false);
 
 
-  const handleSubmit = async () => {
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("image", image); // Thêm ảnh vào FormData
-    formData.append("price", price);
-    formData.append("priceold", priceold);
-    formData.append("sold", sold);
-    formData.append("sale", sale);
-    formData.append("type", type);
+  // const handleSubmit = async () => {
+  //   const formData = new FormData();
+  //   formData.append("title", title);
+  //   formData.append("image", image); // Thêm ảnh vào FormData
+  //   formData.append("price", price);
+  //   formData.append("priceold", priceold);
+  //   formData.append("sold", sold);
+  //   formData.append("sale", sale);
+  //   formData.append("type", type);
 
-    console.log("data : " + formData);
-    try {
-      const response = await apiCreateBook(formData); // Gửi FormData
-      if (response.data.status === 1) {
-        toast.success("Thêm sách thành công");
-      } else {
-        toast.error("Thêm sách thất bại");
-      }
-    } catch (error) {
-      setError(error);
-    }
-  };
+  //   console.log("data : " + formData);
+  //   try {
+  //     const response = await apiCreateBook(formData); // Gửi FormData
+  //     if (response.data.status === 1) {
+  //       toast.success("Thêm sách thành công");
+  //     } else {
+  //       toast.error("Thêm sách thất bại");
+  //     }
+  //   } catch (error) {
+  //     setError(error);
+  //   }
+  // };
 
 
   const handleOpenDetails = async () => {
@@ -53,13 +53,13 @@ const CreateProduct = ({ onclose }) => {
     try {
       const response = await apiCreateBook(formData); // Gửi FormData
       if (response.data.status === 1) {
-        setId(response.data.id); // The ID of the newly added book
+        setId(response.data.id); 
+        setIsShowCreteDetail(true);
       } else {
       }
     } catch (error) {
       setError(error);
     }
-    setIsShowCreteDetail(true);
   }
 
   const handleCloseDetails = () => {
@@ -109,24 +109,30 @@ const CreateProduct = ({ onclose }) => {
             <input
               className=" text-sm font-medium mt-2 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder="Nhập giá sách "
+              type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
             <input
               className=" text-sm font-medium mt-2 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder="Nhập giá cũ sách.."
+              type="number"
+              
               value={priceold}
               onChange={(e) => setPriceold(e.target.value)}
             />
             <input
               className=" text-sm font-medium mt-2 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder="Nhập giảm giá..."
+
               value={sale}
               onChange={(e) => setSale(e.target.value)}
             />
             <input
               className=" text-sm font-medium mt-2 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder="Nhập số lượng..."
+              type="number"
+
               value={sold}
               onChange={(e) => setSold(e.target.value)}
             />

@@ -110,7 +110,7 @@ const Sidebar = () => {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                      d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
                     />
                   </svg>
 
@@ -133,14 +133,14 @@ const Sidebar = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={2.0}
+                    strokeWidth={2.5}
                     stroke="currentColor"
                     className="size-4 text-red-600"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"
+                      d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"
                     />
                   </svg>
 
@@ -179,7 +179,10 @@ const Sidebar = () => {
                   </Link>
                 </li>
                 <li className="py-2 pl-4 text-sm hover:bg-red-200">
-                  <Link to="/quan-ly-sach" className="text-inherit no-underline">
+                  <Link
+                    to="/quan-ly-sach"
+                    className="text-inherit no-underline"
+                  >
                     Thông tin sách
                   </Link>
                 </li>
@@ -211,14 +214,19 @@ const Sidebar = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={2.0}
+                    strokeWidth={2.5}
                     stroke="currentColor"
                     className="size-4 text-red-600"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"
+                      d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
                     />
                   </svg>
 
@@ -257,8 +265,11 @@ const Sidebar = () => {
                   </Link>
                 </li>
                 <li className="py-2 pl-4 text-sm hover:bg-red-200">
-                  <Link to="/thong-ke-lien-he" className="text-inherit no-underline">
-                    danh sách liên hệ
+                  <Link
+                    to="/thong-ke-lien-he"
+                    className="text-inherit no-underline"
+                  >
+                    Danh sách liên hệ
                   </Link>
                 </li>
                 <li className="py-2 pl-4 text-sm hover:bg-red-200">
@@ -266,7 +277,7 @@ const Sidebar = () => {
                     to="/thong-ke-hoa-don"
                     className="text-inherit no-underline"
                   >
-                    hóa đơn khách hàng
+                    Hóa đơn khách hàng
                   </Link>
                 </li>
                 <li className="py-2 pl-4 text-sm hover:bg-red-200">
@@ -274,7 +285,7 @@ const Sidebar = () => {
                     to="/thong-ke-doanh-thu"
                     className="text-inherit no-underline"
                   >
-                    doanh thu
+                    Doanh thu
                   </Link>
                 </li>
               </ul>
@@ -332,7 +343,10 @@ const Sidebar = () => {
                 }`}
               >
                 <li className="py-2 pl-4 text-sm hover:bg-red-200">
-                  <p onClick={handleLogout} className="text-inherit no-underline">
+                  <p
+                    onClick={handleLogout}
+                    className="text-inherit no-underline"
+                  >
                     Đăng xuất
                   </p>
                 </li>

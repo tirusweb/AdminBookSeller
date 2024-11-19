@@ -1,4 +1,3 @@
-import React from "react";
 import http from "../http";
 
 export const apiGetUser = () => {

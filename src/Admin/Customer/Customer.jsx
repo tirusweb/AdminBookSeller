@@ -77,12 +77,13 @@ const Customer = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"
               />
             </svg>
+
             <h2 className=" text-red-600 bg-white w-full text-xl font-bold text-red uppercase ml-3 ">
               {" "}
-              Quản lý khách hàng 
+              Quản lý khách hàng
             </h2>
           </div>
 
@@ -207,8 +208,10 @@ const Customer = () => {
                         className="py-3 pl-2 font-bold text-red-500 lg:text-xl border border-solid border-gray-200  xs:text-xs text-center"
                       >
                         <div className=" flex items-center justify-around">
-                         
-                          <div onClick={() => openModalDelete(cus.idcus)} className=" cursor-pointer">
+                          <div
+                            onClick={() => openModalDelete(cus.idcus)}
+                            className=" cursor-pointer"
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"

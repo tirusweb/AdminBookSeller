@@ -116,6 +116,8 @@ const CreateDetail = ({ onclose , id }) => {
              <input
               className=" text-sm font-medium mt-4 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder=" Nhập năm xuất bản..."
+              type="number"
+
               value={namxb}
               onChange={(e) => setNamxb(e.target.value)}
             />
@@ -128,6 +130,8 @@ const CreateDetail = ({ onclose , id }) => {
             <input
               className=" text-sm font-medium mt-4 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder=" Nhập trọng lượng..."
+              type="number"
+
               value={trongluong}
               onChange={(e) => setTrongluong(e.target.value)}
             />{" "}
@@ -140,6 +144,7 @@ const CreateDetail = ({ onclose , id }) => {
             <input
               className=" text-sm font-medium mt-4 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder=" Nhập số trang..."
+              type="number"
               value={sotrang}
               onChange={(e) => setSotrang(e.target.value)}
             />

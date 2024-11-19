@@ -5,7 +5,9 @@ import {
   apiGetContact,
 } from "../../../Service/Contact/Contact";
 import UpdateContact from "./Model/Edit";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { apiGetUser } from "../../../Service/User/User";
+import ShowResponse from "./Model/SeenUser";
 
 const ListContact = () => {
   const [contact, setContact] = useState([]);
@@ -13,6 +15,11 @@ const ListContact = () => {
   const [isShowEdit, setIsShowEdit] = useState(false);
   const [isId, setIsId] = useState("");
   const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState([]);
+  const [isPopup, setShowPopup] = useState(false);
+
+
 
   const fetchBook = async () => {
     try {
@@ -55,8 +62,8 @@ const ListContact = () => {
       const response = await apiDeleteContact(isId);
       console.log(response);
       if (response.data.status === 1) {
-        await fetchBook();
         toast.success("Xóa thành công");
+        await fetchBook();
         setIsDeletePopupOpen(false);
       } else {
         toast.error("Thông báo không thế xóa");
@@ -66,30 +73,72 @@ const ListContact = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await apiGetUser();
+        console.log(response.data);
+        if (response.data.status === 1) {
+          setUser(response.data.books);
+        } else {
+          setError(" lỗi khi call API");
+        }
+      } catch (error) {
+        setError(" Lỗi rồi");
+      }
+    };
+    fetchUser();
+  }, []);
+
+  const handleShow = () => {
+    setShowPopup(!isPopup);
+  }
+  const handleClose = () => {
+    setShowPopup(false);
+  }
+
   return (
     <>
       <div className=" w-[100%]">
         <div className="">
-          <div className=" w-full flex-1 flex py-6 items-center bg-white shadow  justify-start ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="currentColor"
-              className="size-6 ml-4 text-red-600"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-              />
-            </svg>
+          <ToastContainer position="top-right" />
+          <div className=" flex flex-1 items-center w-full bg-white shadow justify-between">
+            <div className="   flex py-6 items-center   justify-start ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="currentColor"
+                className="size-6 ml-4 text-red-600"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
+                />
+              </svg>
 
-            <h2 className=" text-red-600 bg-white w-full text-xl font-bold text-red uppercase ml-3 ">
-              {" "}
-              Thống kê Liên kê
-            </h2>
+              <h2 className=" text-red-600 bg-white w-full text-xl font-bold text-red uppercase ml-3 ">
+                {" "}
+                Thống kê Liên kê
+              </h2>
+            </div>
+            <div className=" flex items-start justify-start">
+            <select
+              className="text-sm font-medium mr-4 border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
+              onChange={(e) => setUsername(e.target.value)}
+            >
+              <option value="">Chọn người dùng phản hồi</option>
+              {user.map((users, index) => (
+                <option key={index} value={users.username}>
+                  {users.username}
+                </option>
+              ))}
+            </select>
+            <button onClick={handleShow} className=" bg-red-600 hover:bg-red-700 text-white font-medium text-sm px-4 py-2 rounded-lg mr-12">Xác nhận</button>
+
+            </div>
           </div>
 
           <div className=" mt-2 grid-cols-10 mx-2 grid gap-2 ">
@@ -247,6 +296,8 @@ const ListContact = () => {
           </div>
         )}
         {isShowEdit && <UpdateContact onclose={handleCloseEdit} id={isId} />}
+        {isPopup && <ShowResponse onclose = {handleClose} username = {username}/>}
+
       </div>
     </>
   );

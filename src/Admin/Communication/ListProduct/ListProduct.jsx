@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { apiGetProduct, apiGetProductByType } from "../../../Service/Product/Product";
+import {
+  apiGetProduct,
+  apiGetProductByType,
+} from "../../../Service/Product/Product";
 
 const ListProduct = () => {
   const [books, setBooks] = useState([]);
@@ -7,7 +10,6 @@ const ListProduct = () => {
   const [error, setError] = useState(null);
   const [type, setType] = useState("");
   const [bookTypes, setBookTypes] = useState([]);
- 
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -35,8 +37,8 @@ const ListProduct = () => {
         const response = await apiGetProductByType(type);
         console.log(response.data);
         if (response.data.status === 1) {
-         setBookTypes(response.data.books); 
-          console.log("data type : ",response.data.books);
+          setBookTypes(response.data.books);
+          console.log("data type : ", response.data.books);
         } else {
           setError(response.data.msg);
         }
@@ -64,9 +66,10 @@ const ListProduct = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
               />
             </svg>
+
             <h2 className=" text-red-600 bg-white w-full text-xl font-bold text-red uppercase ml-3 ">
               {" "}
               Thống kê Sách
@@ -196,7 +199,7 @@ const ListProduct = () => {
                     >
                       Giá bán
                     </th>
-                   
+
                     <th
                       colSpan={2}
                       className="text-center py-2 border-r text-sm uppercase border-white border-solid px-3  text-white tracking-wider"
@@ -215,7 +218,6 @@ const ListProduct = () => {
                     >
                       Thể loại
                     </th>
-                  
                   </tr>
                 </thead>
                 <tbody className="">
@@ -250,7 +252,7 @@ const ListProduct = () => {
                       >
                         {book.price}
                       </td>
-                     
+
                       <td
                         colSpan={2}
                         className="py-3 pl-2 font-medium text-gray-600 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
@@ -272,7 +274,6 @@ const ListProduct = () => {
                         {" "}
                         {book.type}
                       </td>
-                     
                     </tr>
                   ))}
                 </tbody>

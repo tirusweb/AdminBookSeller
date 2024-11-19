@@ -8,6 +8,7 @@ const ModalEdit = ({ username, onClose }) => {
   const [fullname, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState(null);
 
@@ -30,7 +31,7 @@ const ModalEdit = ({ username, onClose }) => {
       return toast.error("Mật khẩu phải có ít nhất 8 ký tự");
     }
 
-    const data = { fullname, phone, email, pass };
+    const data = { fullname, address, phone, email, pass };
 
     try {
       const response = await apiUpdateUser(username, data);
@@ -56,6 +57,7 @@ const ModalEdit = ({ username, onClose }) => {
           setFullName(user.fullname);
           setPhone(user.phone);
           setEmail(user.email);
+          setAddress(user.address);
           setPass(user.pass);
         } else {
           setError(response.data.msg);
@@ -112,6 +114,12 @@ const ModalEdit = ({ username, onClose }) => {
               onChange={(e) => setEmail(e.target.value)}
               className=" text-sm font-medium mt-4 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder=" nhập địa chỉ email"
+            />
+             <input
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className=" text-sm font-medium mt-4 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
+              placeholder=" nhập địa chỉ "
             />
             <input
               value={phone}

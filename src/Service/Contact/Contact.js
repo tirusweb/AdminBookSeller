@@ -13,3 +13,15 @@ export const apiUpdateContact = (id, feedback) => {
 export const apiDeleteContact = (id) => {
     return http.delete(`/contact.php?id=${id}`);
 }
+
+export const apiGetContactUsername = (username) => {
+    return http.get(`/contactbyuser.php?username=${username}`);
+} 
+
+export const apiSeenContact = (data) => {
+    return http.post('/contactbyuser.php', data);
+} 
+
+export const apiGetContactLast = (username) => {
+    return http.get(`/contactlast.php?username=${username}`);
+} 

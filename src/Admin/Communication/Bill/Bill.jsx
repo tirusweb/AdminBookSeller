@@ -341,7 +341,7 @@ const ListBill = () => {
                         className="py-3 pl-2 font-medium text-gray-600 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
                       >
                         {" "}
-                        {book.idcus}
+                        {book.fullname}
                       </td>
                       <td
                         colSpan={2}

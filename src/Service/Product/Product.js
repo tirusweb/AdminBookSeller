@@ -8,6 +8,10 @@ export const apiGetDetailProduct = (id) => {
   return http.get(`/detailbook.php?id=${id}`);
 };
 
+export const apiSearchName = (title) => {
+  return http.get(`/searchbook.php?title=${title}`);
+};
+
 export const apiGetProductById = (id) => {
     return http.get(`/updateproduct.php?id=${id}`);
   };
@@ -47,4 +51,12 @@ export const apiUpdateDetailBook = (formData) => {
           "Content-Type": "multipart/form-data",
       },
   });
+};
+
+export const apiDeleteBook = (id) => {
+  return http.delete(`/product.php?id=${id}`);
+};
+
+export const apiDeleteDetailBook = (detailid) => {
+  return http.delete(`/detailbook.php?detailid=${detailid}`);
 };

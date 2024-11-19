@@ -33,19 +33,18 @@ const User = () => {
   const handleDelete = async (username) => {
     try {
       const response = await apiDeleteUserByname(username);
-      console.log( " teen nguoi dung : ",username);
+      console.log(" teen nguoi dung : ", username);
       console.log(response);
       if (response.data.status === 1) {
         toast.success("Xóa người dùng thành công");
-        await fetchUser(); 
+        await fetchUser();
       } else {
         toast.error("Người dùng đang mua sản phẩm không thế xóa");
       }
     } catch (error) {
       toast.error("Lỗi khi gọi API: " + error.message);
     }
-};
-
+  };
 
   const openModalDelete = (username) => {
     setUserToDelete(username);
@@ -75,7 +74,7 @@ const User = () => {
   return (
     <>
       <div className=" w-[100%]">
-      <ToastContainer position="top-right"/>
+        <ToastContainer position="top-right" />
         <div className="">
           <div className=" w-full flex-1 flex py-6 items-center bg-white shadow  justify-start ">
             <svg
@@ -89,7 +88,7 @@ const User = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
               />
             </svg>
             <h2 className=" text-red-600 bg-white w-full text-xl font-bold text-red uppercase ml-3 ">
@@ -116,16 +115,22 @@ const User = () => {
                       Tên tài khoản
                     </th>
                     <th
-                      colSpan={2}
+                      colSpan={3}
                       className="text-center py-2 border-r text-sm uppercase border-white border-solid px-3  text-white tracking-wider"
                     >
                       Họ tên người dùng
                     </th>
                     <th
-                      colSpan={2}
+                      colSpan={3}
                       className="text-center py-2 border-r text-sm uppercase border-white border-solid px-3  text-white tracking-wider"
                     >
                       Email
+                    </th>
+                    <th
+                      colSpan={2}
+                      className="text-center py-2 border-r text-sm uppercase border-white border-solid px-3  text-white tracking-wider"
+                    >
+                      Địa chỉ
                     </th>
                     <th
                       colSpan={2}
@@ -163,17 +168,23 @@ const User = () => {
                         {users.username}
                       </td>
                       <td
-                        colSpan={2}
+                        colSpan={3}
                         className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xl text-center"
                       >
                         {" "}
                         {users.fullname}
                       </td>
                       <td
-                        colSpan={2}
+                        colSpan={3}
                         className="py-3 pl-2 font-medium text-gray-600 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
                       >
                         {users.email}
+                      </td>
+                      <td
+                        colSpan={2}
+                        className="py-3 pl-2 font-medium text-gray-600 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                      >
+                        {users.address}
                       </td>
                       <td
                         colSpan={2}

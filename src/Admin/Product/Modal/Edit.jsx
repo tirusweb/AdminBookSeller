@@ -136,12 +136,16 @@ const EditProduct = ({ onClose, ids }) => {
             <input
               className=" text-sm font-medium mt-4 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder="Nhập giá sách "
+              type="number"
+
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
             <input
               className=" text-sm font-medium mt-4 ml-12 w-[80%] border border-gray-300 border-solid outline-cyan-200 px-6 py-2 rounded"
               placeholder="Nhập giá cũ sách.."
+              type="number"
+
               value={priceold}
               onChange={(e) => setPriceold(e.target.value)}
             />

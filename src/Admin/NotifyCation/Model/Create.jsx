@@ -111,7 +111,7 @@ const CreateNotify = ({ onclose }) => {
               <option value="">chọn người dùng áp dụng</option>
               {user.map((users, index) => (
                 <option key={index} value={users.username}>
-                  {users.fullname}
+                  {users.username}
                 </option>
               ))}
             </select>
